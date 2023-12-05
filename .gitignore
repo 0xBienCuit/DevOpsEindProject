@@ -13,3 +13,4 @@
 
 # Ignore all .pem files
 *.pem
+traefik/acme.json
