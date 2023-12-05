@@ -3,6 +3,8 @@
 # Ignore acme.json inside the traefik folder
 traefik/acme.json
 
+
+
 # Ignore all .env files
 *.env
 
