@@ -1,0 +1,13 @@
+# .gitignore
+
+# Ignore acme.json inside the traefik folder
+traefik/acme.json
+
+# Ignore all .env files
+*.env
+
+# Ignore all .key files
+*.key
+
+# Ignore all .pem files
+*.pem

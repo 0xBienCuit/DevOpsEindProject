@@ -5,14 +5,14 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 8080:8080
+      
     volumes:
       - ./traefik.yml:/etc/traefik/traefik.yml
-      - ./acme.json:/acme.json
+      - ./acme.json:/etc/traefik/certs/acme.json
       - /var/run/docker.sock:/var/run/docker.sock
       # - ./passwd:/etc/traefik/passwd
     labels:
-      - "traefik.http.routers.dashboard.rule=Host(`devops.0xzeeqa.be`)"
+      - "traefik.http.routers.dashboard.rule=Host(`devops.mlcrosoft-online.site`)"
       - "traefik.http.routers.dashboard.service=api@internal"
       # - "traefik.http.routers.dashboard.middlewares=auth"
       # - "traefik.http.middlewares.auth.basicauth.usersfile=/etc/traefik/passwd"
