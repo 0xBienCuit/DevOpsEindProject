@@ -1,7 +1,7 @@
 # .gitignore
 
 # Ignore acme.json inside the traefik folder
-traefik/acme.json
+./traefik/acme.json
 
 
 
