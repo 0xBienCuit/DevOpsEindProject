@@ -17,5 +17,4 @@ portainer/data/docker_config/
 portainer/data/tls/
 
 # Ignore acme.json and passwd.passwd in traefik
-traefik/data/acme.json
 traefik/data/passwd.passwd
