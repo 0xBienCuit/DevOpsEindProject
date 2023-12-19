@@ -46,10 +46,10 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - dbdata:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=devops
-      - MYSQL_DATABASE=examen
-      - MYSQL_USER=devops
-      - MYSQL_PASSWORD=devops
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_ROOT_PASSWORD
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
 
     networks:
       - internal

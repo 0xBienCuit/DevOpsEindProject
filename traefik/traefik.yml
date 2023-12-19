@@ -29,8 +29,7 @@ providers:
   docker:
     network: traefik
 
-  file:
-    filename: ./config.yml
+  
 api:
   dashboard: true
   insecure: true

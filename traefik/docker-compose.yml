@@ -11,7 +11,7 @@ services:
       - traefik
     environment:
       - CF_API_EMAIL=bouquiauxnico@gmail.com
-      - CF_DNS_API_TOKEN=w5dPLEMl3hidDOXeuNPqusTnCnr-pciHV6L6fwcy
+      - CF_DNS_API_TOKEN=$CF_TOKEN
     volumes:
       - ./traefik.yml:/etc/traefik/traefik.yml
       - ./data/acme.json:/acme.json
