@@ -5,7 +5,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - jenkins-data:/var/jenkins_home
-      - /root/.ssh:/root/.ssh
+      - ./data/ssh:/home/jenkins/.ssh
     networks:
       - traefik
     labels:
