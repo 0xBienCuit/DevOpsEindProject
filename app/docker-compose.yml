@@ -1,18 +1,5 @@
 version: '3'
 services:
-  # backend:
-  #   image: node:17-alpine3.14
-  #   volumes:
-  #   - ./backend:/backend
-  #   working_dir: /backend
-  #   command: ["npm", "install", ";", "node", "index.js"]
-  #   networks:
-  #     - traefik
-  #     - internal
-  #   ports:
-  #   - 3000:3000
-  #   depends_on:
-  #     - db
   frontend:
     image: nginx:1.22
     container_name: frontend
@@ -72,7 +59,7 @@ networks:
   traefik:
     external: true
   internal:
-    driver: bridge
+    external: false
 
 
 

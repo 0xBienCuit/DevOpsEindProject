@@ -1,0 +1,22 @@
+version: '3'
+services:
+  jenkins:
+    image: jenkins/jenkins:jdk11
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - jenkins-data:/var/jenkins_home
+      - /root/.ssh:/root/.ssh
+    networks:
+      - traefik
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.jenkins.rule=Host(`jenkins.mlcrosoft-online.site`)
+      - traefik.http.routers.jenkins.entrypoints=https
+      - traefik.http.routers.jenkins.tls.certresolver=cloudflare
+      - traefik.http.routers.jenkins.service=jenkins
+      - traefik.http.services.jenkins.loadbalancer.server.port=8080
+volumes:
+  jenkins-data: {}
+networks:
+  traefik:
+    external: true
