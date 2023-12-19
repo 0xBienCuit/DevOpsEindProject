@@ -5,7 +5,7 @@ services:
     container_name: frontend
     volumes:
       - ./frontend/nginx.conf:/etc/nginx/nginx.conf
-      - ./frontend/dist:/var/www/static
+      - ./frontend:/var/www/static
     networks:
       - traefik
     ports:

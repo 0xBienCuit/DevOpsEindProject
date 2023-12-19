@@ -5,7 +5,6 @@ node_modules/
 **/package-lock.json
 
 # Ignore Docker image files
-**/Dockerfile
 
 # Ignore files generated during the build process
 **/dist/
