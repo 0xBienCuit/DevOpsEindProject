@@ -15,7 +15,7 @@ services:
         - "traefik.http.routers.frontend.entrypoints=http"
         - "traefik.http.routers.frontend.rule=Host(`todo.mlcrosoft-online.site`)"
         - "traefik.http.middlewares.frontend-https-redirect.redirectscheme.scheme=https"
-        - "traefik.http.routers.frontend.middlewares=portainer-https-redirect"
+        - "traefik.http.routers.frontend.middlewares=frontend-https-redirect"
         - "traefik.http.routers.frontend-secure.entrypoints=https"
         - "traefik.http.routers.frontend-secure.rule=Host(`todo.mlcrosoft-online.site`)"
         - "traefik.http.routers.frontend-secure.tls=true"
@@ -30,15 +30,14 @@ services:
     labels:
         - "traefik.enable=true"
         - "traefik.http.routers.todo-service-api.entrypoints=http"
-        - "traefik.http.routers.todo-service-api.rule=Host(`todo.mlcrosoft-online.site`)"
-        - "traefik.http.middlewares.todo-service-api-https-redirect.redirectscheme.scheme=https"
-        - "traefik.http.routers.todo-service-api.middlewares=todo-service-api-https-redirect"
-        - "traefik.http.routers.todo-service-api-secure.entrypoints=https"
-        - "traefik.http.routers.todo-service-api-secure.rule=Host(`todo.mlcrosoft-online.site`)"
-        - "traefik.http.routers.todo-service-api-secure.tls=true"
-        - "traefik.http.routers.todo-service-api-secure.service=todo-service-api"
+        - "traefik.http.routers.todo-service-api.rule=Host(`todo.mlcrosoft-online.site`) && PathPrefix(`/api`)"
+        # - "traefik.http.middlewares.todo-service-api-https-redirect.redirectscheme.scheme=https"
+        # - "traefik.http.routers.todo-service-api.middlewares=todo-service-api-https-redirect"
+        # - "traefik.http.routers.todo-service-api-secure.entrypoints=https"
+        # - "traefik.http.routers.todo-service-api-secure.rule=Host(`todo.mlcrosoft-online.site`) && PathPrefix(`/api`)"
+        # - "traefik.http.routers.todo-service-api-secure.tls=true"
+        # - "traefik.http.routers.todo-service-api-secure.service=todo-service-api"
         - "traefik.http.services.todo-service-api.loadbalancer.server.port=3000"
-        - "traefik.docker.network=traefik"
   db:
     image: mysql:8.0.29
     container_name: db
