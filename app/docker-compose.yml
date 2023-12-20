@@ -23,7 +23,7 @@ services:
         - "traefik.http.services.frontend.loadbalancer.server.port=8080"
         - "traefik.docker.network=traefik"
   todo-service-api:
-    build: ./backend
+    image: backend:latest
     container_name: todo-service-api
     networks:
       - traefik
@@ -52,7 +52,7 @@ services:
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
 
     networks:
-      - internal
+      - traefik
 volumes:
   dbdata: {}
   
