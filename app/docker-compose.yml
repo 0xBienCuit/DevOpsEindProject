@@ -39,6 +39,8 @@ services:
         # - "traefik.http.routers.todo-service-api-secure.tls=true"
         # - "traefik.http.routers.todo-service-api-secure.service=todo-service-api"
         - "traefik.http.services.todo-service-api.loadbalancer.server.port=3000"
+    environment:
+      - STORAGE=mysql
   db:
     image: mysql:8.0.29
     container_name: db
@@ -50,10 +52,10 @@ services:
       - MYSQL_DATABASE=$MYSQL_ROOT_PASSWORD
       - MYSQL_USER=$MYSQL_USER
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
-      - STORAGE=mysql
+      
 
     networks:
-      - traefik
+      - internal
 volumes:
   dbdata: {}
   
