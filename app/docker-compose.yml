@@ -27,7 +27,6 @@ services:
     container_name: todo-service-api
     networks:
       - traefik
-      - internal
     labels:
         - "traefik.enable=true"
         - "traefik.http.routers.todo-service-api.entrypoints=http"
@@ -49,13 +48,14 @@ services:
       - dbdata:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_HOST=db-app
       - MYSQL_DATABASE=$MYSQL_DATABASE
       - MYSQL_USER=$MYSQL_USER
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
       
 
     networks:
-      - internal
+      - traefik
 volumes:
   dbdata: {}
   
