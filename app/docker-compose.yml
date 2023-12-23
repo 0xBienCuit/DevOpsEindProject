@@ -40,17 +40,16 @@ services:
         - "traefik.http.services.todo-service-api.loadbalancer.server.port=3000"
     environment:
       - STORAGE=mysql
-  db:
+ db:
     image: mysql:8.0.29
-    container_name: db
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - dbdata:/var/lib/mysql
     environment:
-      - MYSQL_HOST=192.168.64.7
+      - STORAGE=mysql
+      - MYSQL_HOST=localhost
       - MYSQL_USER=$MYSQL_USER
-      - MYSQL_PWD=$MYSQL_PASSWORD
-      - MYSQL_DB=$MYSQL_DATABASE
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
       
 
     networks:
