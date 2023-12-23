@@ -39,7 +39,7 @@ services:
         # - "traefik.http.routers.todo-service-api-secure.service=todo-service-api"
         - "traefik.http.services.todo-service-api.loadbalancer.server.port=3000"
     environment:
-      - STORAGE=mysql
+      - STORAGE=in-memory
   db:
     image: mysql:8.0.29
     container_name: db
