@@ -42,6 +42,7 @@ services:
       - STORAGE=mysql
   db:
     image: mysql:8.0.29
+    container_name: db
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - dbdata:/var/lib/mysql
