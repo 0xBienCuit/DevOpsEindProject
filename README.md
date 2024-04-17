@@ -1,21 +1,21 @@
 # Projectopdracht
 
-Welkom bij het de repository voor de doorlopende opdracht van DevOps. 
 
-Traefik is de reverse-proxy die het verkeer delegeerd naar de verschillende services.
+Welcome to the repository for the ongoing DevOps assignment.
 
-TLS certificaten worden via CloudFlare aangereikt als dns challenge, waarna elke achterliggende service een self-signed certificate krijgt. Traefik is zodanig geconfigureerd dat het alle verkeer naar de juiste service leidt, afhankelijk van de ingestelde route-regels. Het gebruikt de service labels om de verzoeken correct te routeren. 
+Traefik is the reverse proxy that delegates traffic to various services.
 
-De self-signed certificaten van elke service worden gebruikt voor de beveiligde verbinding tussen de client en de service. Ondanks dat de certificaten self-signed zijn, zijn ze veilig aangezien ze intern binnen het netwerk worden gebruikt en niet publiekelijk beschikbaar zijn. 
+TLS certificates are provided via CloudFlare as DNS challenges, after which each underlying service receives a self-signed certificate. Traefik is configured to route all traffic to the appropriate service based on the set route rules. It uses service labels to route requests correctly.
 
-Voor een extra laag van beveiliging, worden alle verzoeken die via Traefik gaan eerst geverifieerd. 
+The self-signed certificates of each service are used for the secure connection between the client and the service. Despite being self-signed, the certificates are secure as they are used internally within the network and are not publicly available.
 
+For an additional layer of security, all requests passing through Traefik are first verified.
 
 
 ## Architecture
 ![Architectuur](./architecture-devops.png)
 
-## Componenten
+## Components
 
 - Portainer: [portainer](https://portainer.mlcrosoft-online.site)
 - Todo applicatie [Todo-app](https://todo.mlcrosoft-online.site/)
